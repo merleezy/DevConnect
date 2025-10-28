@@ -1,0 +1,1 @@
+DevConnect is a lightweight “LinkedIn for developers” where users create profiles, share posts, comment/like, and DM in real time.
