@@ -1,2 +1,6 @@
 # DevConnect
-A lightweight “LinkedIn for developers”
+
+
+
+A lightweight “LinkedIn for developers” where users create profiles, share posts, comment/like, and DM in real time.
+
