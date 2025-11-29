@@ -103,7 +103,7 @@ devconnect/
 │   │   └── main.jsx        # Frontend entry point
 │   ├── Dockerfile          # Frontend container configuration
 │   ├── .env.example        # Client environment variables
-│   ├── .eslintignore       # ESLint exclusion list
+│   ├── eslint.config.js    # ESLint config file
 │   ├── .dockerignore       # Docker exclusion list
 │   └── package.json        # Frontend dependencies
 │
@@ -119,7 +119,7 @@ devconnect/
 │   ├── server.js           # Backend entry point
 │   ├── Dockerfile          # Backend container configuration
 │   ├── .env.example        # Server environment variables
-│   ├── .eslintignore       # ESLint exclusion list
+│   ├── eslint.config.js    # ESLint config file
 │   ├── .dockerignore       # Docker exclusion list
 │   └── package.json        # Backend dependencies
 │
