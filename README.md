@@ -1,103 +1,262 @@
 # DevConnect
-A lightweight “LinkedIn for developers” for developers to share projects and connect.
+
+A lightweight “LinkedIn for developers” — a platform where developers can connect, post projects, follow others, and collaborate.
 
 ---
 
 ## Overview
-DevConnect is a social media platform for developers to connect, share projects, and collaborate. The goal is to create a space that focuses on meaningful tech discussion and project sharing rather than generic social content.
+
+DevConnect is a social platform designed specifically for developers.
+Instead of generic social noise, it focuses on:
+
+- sharing projects
+- discussing technology
+- forming niche communities
+- and creating meaningful developer-to-developer interactions
+
+---
 
 ## Purpose
-Most developer communities are fragmented across multiple platforms. DevConnect aims to simplify networking and collaboration for developers in on unified space.
 
-## Features
-- \[ ] User registration and login
-- \[ ] Create, delete, and edit posts
-- \[ ] Comment on and like/dislike a post or comment
-- \[ ] DM other users in real time
-- \[ ] Public profile page for each user with all their posts
-- \[ ] Edit profile settings for each user
-- \[ ] Main feed/timeline with recommended posts
-- \[ ] Ability to follow or be followed by other users
-- \[ ] Search bar where you can look for users or groups
-- \[ ] Ability to make community groups that users can join/leave
+Most developer communities are scattered across GitHub, Discord servers, StackOverflow, Reddit, etc.
+DevConnect aims to centralize these interactions into one unified platform.
+
+---
+
+## Features (Planned)
+
+- [ ] User registration + login (JWT)
+- [ ] Create / edit / delete posts
+- [ ] Like / dislike posts and comments
+- [ ] Comment threads
+- [ ] Real-time DM messaging
+- [ ] User profiles with bio, skills, and project links
+- [ ] Edit profile and account settings
+- [ ] Personalized feed with recommended posts
+- [ ] Follow/unfollow system
+- [ ] Search for users, posts, or groups
+- [ ] Create and join developer groups
+- [ ] Group feeds and discussions
+
+---
 
 ## Tech Stack
-**Frontend:** React, HTML, CSS, JavaScript
-**Backend:** Node.js, Express.js
-**Database:** MongoDB (Atlas)
-**Other:** Docker, GitHub Actions (CI/CD), JWT, Render/Vercel for deployment
+
+### Frontend
+
+React (Vite)
+JavaScript
+CSS / Tailwind (optional)
+
+### Backend
+
+Node.js
+Express.js
+Mongoose (MongoDB ODM)
+
+### Database
+
+MongoDB Atlas (production)
+MongoDB Docker container (development)
+
+### Infrastructure / DevOps
+
+Docker & Docker Compose
+GitHub Actions (planned)
+Render / Vercel for deployment
+
+---
 
 ## Learning Objectives
-- Learn how to build and structure and full MERN application
-- Understand REST API design and authentication
-- Practice docker containerization and CI/CD deployment
-- Strengthen React component and state management skills
 
-## User Flow
-Users can register, create a profile with their skills and links, and post updates or project links. Users can also create their own groups, allowing them create their own sub-communities for their own niche interests or organizations. Other users can like and comment on posts, follow/unfollow other users, and join/leave groups, creating a community-driven feed.
+- Build a clean, scalable MERN application
+- Understand REST API architecture + JWT authentication
+- Use containerization with Docker
+- Strengthen React design patterns and state management
+- Learn CI/CD concepts for deployment
 
-## Project Structure
-```
-/devconnect
-  /client          # React frontend
-    /public
-      index.html
-    /src
-      /components  # Reusable React components
-      /pages       # Page components
-      /context     # React context providers
-      /hooks       # Custom React hooks
-      /services    # API interaction functions
-      /styles      # CSS / Tailwind styles
-      /utils       # Helper functions
-      /assets      # Images, icons, etc.
-      App.jsx
-      main.jsx
-    package.json
-    Dockerfile
-    .env
-    .env.example
-    .eslintrc.cjs
-  /server          # Node.js backend
-    /controllers   # Route controllers
-    /models        # Mongoose models
-    /routes        # Express routes
-    /config        # Database config and environment loading
-    /middleware    # Auth and error handling middleware
-    /services      # Business logic
-    /utils         # Helper functions
-    /tests         # Backend tests
-    server.js
-    package.json
-    Dockerfile
-    .env
-    .env.example
-    .eslintrc.cjs
-  docker-compose.yml
-  .gitignore
-  .dockerignore
-  .editorconfig
-  .prettierrc
-  README.md
-```
+---
 
-## Future Ideas / Goals
-- \[ ] Notifications and a place in settings for it
-- \[ ] Ability for users to create group chats in DMs
-- \[ ] Ability to make groups public or private (with invites or pending join requests)
-- \[ ] Dark mode style option
-- \[ ] Tag system where users can add tags to their posts and then you can search based on tag.
-- \[ ] Ability to sort timeline by following only
+## User Flow Summary
 
-### Recommended VS Code Extensions
-- ESLint (Microsoft)
-- Prettier – Code formatter
-- EditorConfig for VS Code
+Users can register, build a profile, follow other developers, create posts, comment, and join community groups.
+A personalized feed shows posts from followed users, groups, and recommended content.
 
-## References
-- [React Docs](https://react.dev/)
-- [MongoDB Atlas Docs](https://www.mongodb.com/docs/atlas/)
+---
 
-## Notes
+# Project Structure
 
--
+devconnect/
+├── client/                 # Frontend (React + Vite)
+│   ├── public/             # Static assets (favicon, manifest)
+│   ├── src/
+│   │   ├── assets/         # Images, fonts, and icons
+│   │   ├── components/     # Reusable UI components (Buttons, Inputs)
+│   │   ├── context/        # Global state (AuthContext, ThemeContext)
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── pages/          # Full page views (Dashboard, Login)
+│   │   ├── services/       # API service calls (Axios setup)
+│   │   ├── styles/         # Global styles & Tailwind setup
+│   │   ├── utils/          # Helper functions (dates, validation)
+│   │   ├── App.jsx         # Main application component
+│   │   └── main.jsx        # Frontend entry point
+│   ├── Dockerfile          # Frontend container configuration
+│   ├── .env.example        # Client environment variables
+│   ├── .eslintignore       # ESLint exclusion list
+│   ├── .dockerignore       # Docker exclusion list
+│   └── package.json        # Frontend dependencies
+│
+├── server/                 # Backend (Node.js + Express)
+│   ├── config/             # DB connection & app configuration
+│   ├── controllers/        # Request handlers (The "Brain")
+│   ├── middleware/         # Auth checks, error handling, logging
+│   ├── models/             # Mongoose schemas (Data structure)
+│   ├── routes/             # API route definitions
+│   ├── services/           # Business logic isolation
+│   ├── tests/              # Unit and integration tests
+│   ├── utils/              # Backend helper functions
+│   ├── server.js           # Backend entry point
+│   ├── Dockerfile          # Backend container configuration
+│   ├── .env.example        # Server environment variables
+│   ├── .eslintignore       # ESLint exclusion list
+│   ├── .dockerignore       # Docker exclusion list
+│   └── package.json        # Backend dependencies
+│
+├── docker-compose.yml      # Orchestrates Client, Server, and Database
+├── .gitignore              # Git exclusion list
+├── package.json            # Root dependencies and scripts
+├── .dockerignore           # Docker exclusion list
+├── .editorconfig           # Editor configuration
+├── .prettierrc             # Prettier configuration
+└── README.md               # Project documentation
+
+---
+
+# Environment Variables
+
+### Client .env
+
+VITE_API_URL=http://localhost:4000
+
+### Server .env
+
+PORT=4000
+MONGODB_URI=mongodb://mongo:27017/devconnect
+JWT_SECRET=your-secret-here
+
+Be sure to copy .env.example into .env when setting up locally.
+
+---
+
+# Setup Instructions
+
+## 1. Clone the repository
+
+git clone https://github.com/yourusername/devconnect.git
+cd devconnect
+
+---
+
+## 2. Install dependencies
+
+### Frontend
+
+cd client
+npm install
+
+### Backend
+
+cd ../server
+npm install
+
+### Root dependencies
+
+cd ..
+npm install
+
+---
+
+## 3. Local Development (without Docker)
+
+npm run dev
+
+This starts:
+Frontend → http://localhost:5173
+Backend → http://localhost:4000
+
+---
+
+# Docker Setup
+
+Docker runs client, server, and MongoDB at once.
+
+### Start Docker
+
+Ensure Docker Desktop is running, then in WSL:
+docker compose up --build
+
+### Services
+
+Client → http://localhost:5173
+Server → http://localhost:4000
+MongoDB → localhost:27017
+
+### Stop Docker
+
+Ctrl + C
+docker compose down
+
+---
+
+# Linting & Code Quality
+
+### Frontend
+
+cd client
+npm run lint
+
+### Backend
+
+cd server
+npm run lint
+
+### Root
+
+npm run lint
+
+---
+
+# Recommended VS Code Extensions
+
+ESLint (Microsoft)
+Prettier – Code formatter
+EditorConfig
+
+---
+
+# Future Enhancements
+
+- [ ] Notifications settings
+- [ ] Group chats in DMs
+- [ ] Public/private groups
+- [ ] Dark mode support
+- [ ] Tag-based post discovery
+- [ ] “Following only” feed
+- [ ] Infinite scroll feed
+- [ ] Skill tags or badges
+
+---
+
+# References
+
+React Docs – https://react.dev/
+Express Docs – https://expressjs.com/
+MongoDB Atlas Docs – https://www.mongodb.com/docs/atlas/
+Docker Docs – https://docs.docker.com/
+Vite Docs – https://vitejs.dev/guide/
+
+---
+
+# Notes
+
+This project is actively being developed as a full-stack learning experience. Features and structure may evolve over time.
