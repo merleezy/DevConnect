@@ -271,11 +271,13 @@ npm run lint
 - [ ] Infinite scroll feed
 - [ ] Skill tags or badges
 
-React Docs – https://react.dev/
-Express Docs – https://expressjs.com/
-MongoDB Atlas Docs – https://www.mongodb.com/docs/atlas/
-Docker Docs – https://docs.docker.com/
-Vite Docs – https://vitejs.dev/guide/
+# Resources
+
+- React Docs – https://react.dev/
+- Express Docs – https://expressjs.com/
+- MongoDB Atlas Docs – https://www.mongodb.com/docs/atlas/
+- Docker Docs – https://docs.docker.com/
+- Vite Docs – https://vitejs.dev/guide/
 
 ---
 
