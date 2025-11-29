@@ -86,6 +86,7 @@ A personalized feed shows posts from followed users, groups, and recommended con
 
 # Project Structure
 
+```text
 devconnect/
 ├── client/ # Frontend (React + Vite)
 │ ├── public/ # Static assets (favicon, manifest)
@@ -129,7 +130,7 @@ devconnect/
 ├── .editorconfig # Editor configuration
 ├── .prettierrc # Prettier configuration
 └── README.md # Project documentation
-
+```
 ---
 
 # Environment Variables
