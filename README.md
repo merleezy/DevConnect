@@ -153,8 +153,6 @@ Be sure to copy `.env.example` into `.env` when setting up locally.
 
 ---
 
-npm install
-
 # Setup Instructions
 
 ## 1. Clone the repository
