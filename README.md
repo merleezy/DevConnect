@@ -44,26 +44,26 @@ DevConnect aims to centralize these interactions into one unified platform.
 
 ### Frontend
 
-React (Vite)
-JavaScript
-CSS / Tailwind (optional)
+- React (Vite)
+- JavaScript
+- CSS / Tailwind (optional)
 
 ### Backend
 
-Node.js
-Express.js
-Mongoose (MongoDB ODM)
+- Node.js
+- Express.js
+- Mongoose (MongoDB ODM)
 
 ### Database
 
-MongoDB Atlas (production)
-MongoDB Docker container (development)
+- MongoDB Atlas (production)
+- MongoDB Docker container (development)
 
 ### Infrastructure / DevOps
 
-Docker & Docker Compose
-GitHub Actions (planned)
-Render / Vercel for deployment
+- Docker & Docker Compose
+- GitHub Actions (planned)
+- Render / Vercel for deployment
 
 ---
 
@@ -87,102 +87,115 @@ A personalized feed shows posts from followed users, groups, and recommended con
 # Project Structure
 
 devconnect/
-├── client/                 # Frontend (React + Vite)
-│   ├── public/             # Static assets (favicon, manifest)
-│   ├── src/
-│   │   ├── assets/         # Images, fonts, and icons
-│   │   ├── components/     # Reusable UI components (Buttons, Inputs)
-│   │   ├── context/        # Global state (AuthContext, ThemeContext)
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Full page views (Dashboard, Login)
-│   │   ├── services/       # API service calls (Axios setup)
-│   │   ├── styles/         # Global styles & Tailwind setup
-│   │   ├── utils/          # Helper functions (dates, validation)
-│   │   ├── App.jsx         # Main application component
-│   │   └── main.jsx        # Frontend entry point
-│   ├── Dockerfile          # Frontend container configuration
-│   ├── .env.example        # Client environment variables
-│   ├── .eslintignore       # ESLint exclusion list
-│   ├── .dockerignore       # Docker exclusion list
-│   └── package.json        # Frontend dependencies
+├── client/ # Frontend (React + Vite)
+│ ├── public/ # Static assets (favicon, manifest)
+│ ├── src/
+│ │ ├── assets/ # Images, fonts, and icons
+│ │ ├── components/ # Reusable UI components (Buttons, Inputs)
+│ │ ├── context/ # Global state (AuthContext, ThemeContext)
+│ │ ├── hooks/ # Custom React hooks
+│ │ ├── pages/ # Full page views (Dashboard, Login)
+│ │ ├── services/ # API service calls (Axios setup)
+│ │ ├── styles/ # Global styles & Tailwind setup
+│ │ ├── utils/ # Helper functions (dates, validation)
+│ │ ├── App.jsx # Main application component
+│ │ └── main.jsx # Frontend entry point
+│ ├── Dockerfile # Frontend container configuration
+│ ├── .env.example # Client environment variables
+│ ├── .eslintignore # ESLint exclusion list
+│ ├── .dockerignore # Docker exclusion list
+│ └── package.json # Frontend dependencies
 │
-├── server/                 # Backend (Node.js + Express)
-│   ├── config/             # DB connection & app configuration
-│   ├── controllers/        # Request handlers (The "Brain")
-│   ├── middleware/         # Auth checks, error handling, logging
-│   ├── models/             # Mongoose schemas (Data structure)
-│   ├── routes/             # API route definitions
-│   ├── services/           # Business logic isolation
-│   ├── tests/              # Unit and integration tests
-│   ├── utils/              # Backend helper functions
-│   ├── server.js           # Backend entry point
-│   ├── Dockerfile          # Backend container configuration
-│   ├── .env.example        # Server environment variables
-│   ├── .eslintignore       # ESLint exclusion list
-│   ├── .dockerignore       # Docker exclusion list
-│   └── package.json        # Backend dependencies
+├── server/ # Backend (Node.js + Express)
+│ ├── config/ # DB connection & app configuration
+│ ├── controllers/ # Request handlers (The "Brain")
+│ ├── middleware/ # Auth checks, error handling, logging
+│ ├── models/ # Mongoose schemas (Data structure)
+│ ├── routes/ # API route definitions
+│ ├── services/ # Business logic isolation
+│ ├── tests/ # Unit and integration tests
+│ ├── utils/ # Backend helper functions
+│ ├── server.js # Backend entry point
+│ ├── Dockerfile # Backend container configuration
+│ ├── .env.example # Server environment variables
+│ ├── .eslintignore # ESLint exclusion list
+│ ├── .dockerignore # Docker exclusion list
+│ └── package.json # Backend dependencies
 │
-├── docker-compose.yml      # Orchestrates Client, Server, and Database
-├── .gitignore              # Git exclusion list
-├── package.json            # Root dependencies and scripts
-├── .dockerignore           # Docker exclusion list
-├── .editorconfig           # Editor configuration
-├── .prettierrc             # Prettier configuration
-└── README.md               # Project documentation
+├── docker-compose.yml # Orchestrates Client, Server, and Database
+├── .gitignore # Git exclusion list
+├── package.json # Root dependencies and scripts
+├── .dockerignore # Docker exclusion list
+├── .editorconfig # Editor configuration
+├── .prettierrc # Prettier configuration
+└── README.md # Project documentation
 
 ---
 
 # Environment Variables
 
-### Client .env
+### Client `.env`
 
+```env
 VITE_API_URL=http://localhost:4000
+```
 
-### Server .env
+### Server `.env`
 
+```env
 PORT=4000
 MONGODB_URI=mongodb://mongo:27017/devconnect
 JWT_SECRET=your-secret-here
+```
 
-Be sure to copy .env.example into .env when setting up locally.
+Be sure to copy `.env.example` into `.env` when setting up locally.
 
 ---
+
+npm install
 
 # Setup Instructions
 
 ## 1. Clone the repository
 
+```bash
 git clone https://github.com/yourusername/devconnect.git
 cd devconnect
-
----
+```
 
 ## 2. Install dependencies
 
 ### Frontend
 
+```bash
 cd client
 npm install
+```
 
 ### Backend
 
+```bash
 cd ../server
 npm install
+```
 
 ### Root dependencies
 
+```bash
 cd ..
 npm install
-
----
+```
 
 ## 3. Local Development (without Docker)
 
+```bash
 npm run dev
+```
 
 This starts:
-Frontend → http://localhost:5173
-Backend → http://localhost:4000
+
+- Frontend → http://localhost:5173
+- Backend → http://localhost:4000
 
 ---
 
@@ -193,46 +206,60 @@ Docker runs client, server, and MongoDB at once.
 ### Start Docker
 
 Ensure Docker Desktop is running, then in WSL:
+
+# Docker Setup
+
+Docker runs client, server, and MongoDB together.
+
+### Start Docker
+
+Ensure Docker (or Docker Desktop) is running, then in WSL / terminal:
+
+```bash
 docker compose up --build
+```
 
 ### Services
 
-Client → http://localhost:5173
-Server → http://localhost:4000
-MongoDB → localhost:27017
+- Client → http://localhost:5173
+- Server → http://localhost:4000
+- MongoDB → localhost:27017
 
 ### Stop Docker
 
-Ctrl + C
-docker compose down
+Press `Ctrl + C` in the terminal running compose, then:
 
----
+```bash
+docker compose down
+```
 
 # Linting & Code Quality
 
 ### Frontend
 
+```bash
 cd client
 npm run lint
+```
 
 ### Backend
 
+```bash
 cd server
 npm run lint
+```
 
 ### Root
 
+```bash
 npm run lint
-
----
+```
 
 # Recommended VS Code Extensions
 
-ESLint (Microsoft)
-Prettier – Code formatter
-EditorConfig
-
----
+- ESLint (Microsoft)
+- Prettier – Code formatter
+- EditorConfig
 
 # Future Enhancements
 
@@ -245,15 +272,11 @@ EditorConfig
 - [ ] Infinite scroll feed
 - [ ] Skill tags or badges
 
----
-
-# References
-
 React Docs – https://react.dev/
 Express Docs – https://expressjs.com/
 MongoDB Atlas Docs – https://www.mongodb.com/docs/atlas/
 Docker Docs – https://docs.docker.com/
-Vite Docs – https://vitejs.dev/guide/  
+Vite Docs – https://vitejs.dev/guide/
 
 ---
 
